@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
-const TestTwo = (props) => {
+function TestGreen(props) {
   return (
     <div
       style={{
@@ -9,7 +9,7 @@ const TestTwo = (props) => {
         height: "100%",
         display: "flex",
         transition: "all 1s ease-out",
-        transform: `translateX(${props.translate}%)`,
+        transform: `translateX(${props.translateG}%)`,
       }}
     >
       {props.sliderGreen.map((item, i) => (
@@ -17,6 +17,6 @@ const TestTwo = (props) => {
       ))}
     </div>
   );
-};
+}
 
-export default TestTwo;
+export default TestGreen;

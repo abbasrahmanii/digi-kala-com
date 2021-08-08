@@ -1,11 +1,14 @@
 import React from "react";
-import TestTwo from "./TestTwo";
+import TestGreen from "./TestGreen";
 import styled from "styled-components";
 
-const SliderTest = (props) => {
+const SliderTestGreen = (props) => {
   return (
     <Slider>
-      <TestTwo translate={props.translate} sliderGreen={props.sliderGreen} />
+      <TestGreen
+        translateG={props.translateG}
+        sliderGreen={props.sliderGreen}
+      />
     </Slider>
   );
 };
@@ -13,7 +16,7 @@ const SliderTest = (props) => {
 const Slider = styled.div`
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 15px;
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
@@ -28,4 +31,4 @@ const Slider = styled.div`
   }
 `;
 
-export default SliderTest;
+export default SliderTestGreen;

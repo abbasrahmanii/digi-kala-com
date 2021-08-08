@@ -2,45 +2,45 @@ import React, { useState, useEffect } from "react";
 import wow from "../images/asset 39.png";
 import styled from "styled-components";
 // import TestTwo from "./TestTwo";
-import SliderTest from "./SliderTest";
+import SliderTestGreen from "./SliderTestGreen";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import SlideArrays from "./SlideArrays";
 
 const SliderGreen = () => {
-  const [translate, setTranslate] = useState(0);
+  const [translateG, setTranslateG] = useState(0);
   const [sliderGreen, setSliderGreen] = useState(SlideArrays.itemsGreen);
-  const [opacityLeft, setOpacityLeft] = useState(1);
-  const [opacityRight, setOpacityRight] = useState(1);
+  const [opacityLeftG, setOpacityLeftG] = useState(1);
+  const [opacityRightG, setOpacityRightG] = useState(1);
 
   const arrowRightHandler = () => {
-    if (translate !== 0) {
-      setTranslate(translate - 25.5);
+    if (translateG !== 0) {
+      setTranslateG(translateG - 25.5);
     }
   };
   const arrowLeftHandler = () => {
-    if (translate !== (sliderGreen.length - 4) * 25.5) {
-      setTranslate(translate + 25.5);
+    if (translateG !== (sliderGreen.length - 4) * 25.5) {
+      setTranslateG(translateG + 25.5);
     }
   };
 
   useEffect(() => {
-    if (translate !== 0) {
+    if (translateG !== 0) {
       // setOpacityLeft(0.05);
-      setOpacityRight(1);
+      setOpacityRightG(1);
     } else {
       // setOpacityLeft(1);
-      setOpacityRight(0.05);
+      setOpacityRightG(0.05);
     }
-    if (translate !== (sliderGreen.length - 4) * 25.5) {
+    if (translateG !== (sliderGreen.length - 4) * 25.5) {
       // setOpacityRight(0.05);
-      setOpacityLeft(1);
+      setOpacityLeftG(1);
     } else {
       // setOpacityRight(1);
-      setOpacityLeft(0.05);
+      setOpacityLeftG(0.05);
     }
-  }, [translate]);
+  }, [translateG]);
 
   return (
     <Slider>
@@ -58,17 +58,16 @@ const SliderGreen = () => {
             icon={faChevronRight}
             size="2x"
             onClick={arrowRightHandler}
-            style={{ opacity: `${opacityRight}` }}
+            style={{ opacity: `${opacityRightG}` }}
           />
-          <SliderTest translate={translate} sliderGreen={sliderGreen} />
-          {/* <TestTwo translate={translate} /> */}
+          <SliderTestGreen translateG={translateG} sliderGreen={sliderGreen} />
           <FontAwesomeIcon
             className="icon icon2"
             cursor="pointer"
             icon={faChevronLeft}
             size="2x"
             onClick={arrowLeftHandler}
-            style={{ opacity: `${opacityLeft}` }}
+            style={{ opacity: `${opacityLeftG}` }}
           />
         </Left>
       </section>

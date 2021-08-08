@@ -1,10 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import wow from "../images/asset 20.png";
-import Test from "./Test";
-
 import styled from "styled-components";
+import SliderTestRed from "./SliderTestRed";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import SlideArrays from "./SlideArrays";
 
-const SliderRed = () => {
+const SliderRed = (props) => {
+  const [translateR, setTranslateR] = useState(0);
+  const [sliderRed, setSliderRed] = useState(SlideArrays.itemsRed);
+  const [opacityLeftR, setOpacityLeftR] = useState(1);
+  const [opacityRightR, setOpacityRightR] = useState(1);
+
+  const arrowRightHandler = () => {
+    if (translateR !== 0) {
+      setTranslateR(translateR - 25.5);
+    }
+  };
+  const arrowLeftHandler = () => {
+    if (translateR !== (sliderRed.length - 4) * 25.5) {
+      setTranslateR(translateR + 25.5);
+    }
+  };
+
+  useEffect(() => {
+    if (translateR !== 0) {
+      // setOpacityLeft(0.05);
+      setOpacityRightR(1);
+    } else {
+      // setOpacityLeft(1);
+      setOpacityRightR(0.05);
+    }
+    if (translateR !== (sliderRed.length - 4) * 25.5) {
+      // setOpacityRight(0.05);
+      setOpacityLeftR(1);
+    } else {
+      // setOpacityRight(1);
+      setOpacityLeftR(0.05);
+    }
+  }, [translateR]);
+
   return (
     <Slider>
       <section>
@@ -12,10 +48,30 @@ const SliderRed = () => {
           <a href="#">
             <img src={wow} alt="" />
           </a>
-          <a href="#">مشاهده همه </a>
+          <a href="#">مشاهده همه</a>
         </Right>
         <Left>
-          <Test />
+          <FontAwesomeIcon
+            className="icon icon1"
+            cursor="pointer"
+            icon={faChevronRight}
+            size="2x"
+            onClick={arrowRightHandler}
+            style={{ opacity: `${opacityRightR}` }}
+          />
+          <SliderTestRed
+            translateR={translateR}
+            sliderRed={sliderRed}
+            getTime={props.getTime}
+          />
+          <FontAwesomeIcon
+            className="icon icon2"
+            cursor="pointer"
+            icon={faChevronLeft}
+            size="2x"
+            onClick={arrowLeftHandler}
+            style={{ opacity: `${opacityLeftR}` }}
+          />
         </Left>
       </section>
     </Slider>
@@ -29,7 +85,7 @@ const Slider = styled.main`
   section {
     width: 85%;
     margin: 0rem auto;
-    padding: 2rem 0rem;
+    padding: 2rem 0;
     display: flex;
     flex-direction: row;
   }
@@ -58,19 +114,24 @@ const Right = styled.main`
   }
 `;
 const Left = styled.div`
+  position: relative;
   width: 85%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* font-size: 10rem; */
-  div {
-    width: 23%;
-    height: 100%;
-    border-radius: 10px;
-    /* font-size: 1rem; */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  flex-direction: row;
+  .icon1 {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+    z-index: 80;
+  }
+  .icon2 {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(50%, -50%);
   }
 `;
 export default SliderRed;

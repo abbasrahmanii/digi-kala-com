@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
 import logo from "../images/asset 73.svg";
+import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 
 const Nav = () => {
   return (
@@ -15,14 +16,14 @@ const Nav = () => {
         <input type="text" placeholder="جستجو در دیجی کالا ..." />
       </Right>
       <Left>
-        <div className="login">
+        <a href="#" className="login">
           <FontAwesomeIcon icon={faUser} color="#616161" />
           <span>ورود به حساب کاربری</span>
-        </div>
+        </a>
         <span className="line"></span>
-        <div className="shop">
+        <a href="#" className="shop">
           <FontAwesomeIcon icon={faShoppingCart} color="#616161" />
-        </div>
+        </a>
       </Left>
     </NavBar>
   );
@@ -74,6 +75,7 @@ const Left = styled.div`
     border: 1px solid #aaaaaa;
     padding: 0.8rem 1rem;
     border-radius: 10px;
+    text-decoration: none;
     span {
       color: #616161;
       font-size: 0.8rem;
