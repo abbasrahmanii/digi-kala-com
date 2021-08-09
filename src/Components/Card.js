@@ -45,8 +45,8 @@ function Card(props) {
                 </div>
               )}
             </div>
+            <span>00:00:00</span>
             <QueryBuilderRoundedIcon />
-            <span>{props.getTime}</span>
           </div>
         </div>
       </Link>
@@ -60,7 +60,7 @@ const CardStyle = styled.div`
     width: 100%;
     min-height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: stretch;
     align-items: center;
     flex-direction: column;
     border-radius: 15px;
@@ -92,12 +92,10 @@ const CardStyle = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      /* align-items: center; */
       h4 {
         text-align: right;
         display: flex;
         justify-content: flex-start;
-        /* width: 80%; */
         min-height: 5vh;
         margin-bottom: 1rem;
       }
@@ -105,7 +103,8 @@ const CardStyle = styled.div`
         text-align: right;
         display: block;
         width: 80%;
-        min-height: max-content;
+        /* min-height: max-content; */
+        min-height: 3vh;
         margin-bottom: 1.5rem;
         div {
           display: flex;
@@ -120,7 +119,7 @@ const CardStyle = styled.div`
       }
       .price {
         /* display: flex; */
-        width: 80%;
+        width: 95%;
         justify-content: flex-end;
         height: max-content;
         margin-bottom: 0.5rem;
@@ -139,7 +138,7 @@ const CardStyle = styled.div`
         }
       }
       h3 {
-        width: 80%;
+        width: 95%;
         display: flex;
         justify-content: flex-end;
       }
@@ -147,12 +146,12 @@ const CardStyle = styled.div`
       .price {
         display: flex;
         flex-direction: row;
-        width: 80%;
+        /* width: 90%; */
       }
     }
     .total {
       margin: 0 auto;
-      width: 85%;
+      width: 90%;
       min-height: 3vh;
       .progress {
         margin: 0 auto;
@@ -163,6 +162,7 @@ const CardStyle = styled.div`
         position: relative;
         overflow: hidden;
         border-radius: 25px;
+        border: none;
         .slider {
           position: absolute;
           top: 0;
@@ -174,7 +174,7 @@ const CardStyle = styled.div`
       }
     }
     .bottom {
-      width: 85%;
+      width: 90%;
       /* background-color: red; */
       margin: 0 auto;
       display: flex;
@@ -183,10 +183,17 @@ const CardStyle = styled.div`
       .percent {
         width: 100%;
         div {
+          font-size: 0.9rem;
           span {
             color: #ef394e;
           }
         }
+      }
+      span {
+        font-size: 0.8rem;
+      }
+      svg {
+        font-size: 1.2rem;
       }
     }
   }

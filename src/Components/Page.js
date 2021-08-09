@@ -20,16 +20,16 @@ import pic1 from "../images/asset 40.jpeg";
 import pic2 from "../images/asset 75.svg";
 
 const Page = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    fab: {
-      margin: theme.spacing(1),
-    },
-    absolute: {
-      position: "absolute",
-      bottom: theme.spacing(2),
-      right: theme.spacing(3),
-    },
-  }));
+  // const useStyles = makeStyles((theme) => ({
+  //   fab: {
+  //     margin: theme.spacing(1),
+  //   },
+  //   absolute: {
+  //     position: "absolute",
+  //     bottom: theme.spacing(2),
+  //     right: theme.spacing(3),
+  //   },
+  // }));
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -133,16 +133,6 @@ const Page = (props) => {
               <h5>ماندگاری: ۲۴ ساعت</h5>
             </div>
           </div>
-
-          {/* <div>
-            <div>
-              <div>
-                <img src="" alt="" />
-              </div>
-              <div></div>
-            </div>
-          </div>
-          <div></div> */}
           <div class="center-bottom">
             <div class="center-bottom-one">
               <div>
@@ -159,12 +149,25 @@ const Page = (props) => {
               <span class="dot"></span>
               <span class="">ارسال رایگان</span>
               <span class="dot"></span>
-              {/* <span class="">۳۰ روز بازگشت کالا</span>
-              <span class="">امکان ارسال فوری</span> */}
             </div>
           </div>
         </div>
-        <div className="left"></div>
+        <div className="left">
+          <h1>فروشنده</h1>
+          <div>
+            <div>
+              <img src="" alt="" />
+              <div>
+                <span>دیجی کالا</span>
+                <span>عملکرد عالی</span>
+              </div>
+            </div>
+            <div>
+              <img src="" alt="" />
+              <span>گارانتی اصالت و سلامت فیزیکی کالا</span>
+            </div>
+          </div>
+        </div>
       </Section>
     </div>
   );
@@ -205,14 +208,14 @@ const Section = styled.div`
       height: 100%;
       .icons {
         width: 10%;
-        height: 100%;
+        height: min-content;
         background-color: #fff;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
         svg {
-          margin-top: 2rem;
+          margin-top: 1rem;
           color: #111111b7;
         }
       }

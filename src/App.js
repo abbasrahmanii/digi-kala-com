@@ -9,34 +9,6 @@ import { Switch, Route, useLocation } from "react-router-dom";
 
 function App() {
   const location = useLocation();
-
-  const now = new Date();
-  const [fall, setFall] = useState({
-    month: now.getMonth(),
-    date: now.getDate(),
-    fullYear: now.getFullYear(),
-  });
-  const [pool, setPool] = useState({
-    hours: now.getHours(),
-    minutes: now.getMinutes(),
-    seconds: now.getSeconds(),
-  });
-
-  // setInterval(() => {
-  // const now = new Date();
-  // setFall({
-  //   month: now.getMonth(),
-  //   date: now.getDate(),
-  //   fullYear: now.getFullYear(),
-  // });
-  // setPool({
-  //   hours: now.getHours(),
-  //   minutes: now.getMinutes(),
-  //   seconds: now.getSeconds(),
-  // });
-  // console.log(pool[3]);
-  // }, 1000);
-
   return (
     <DigiKala>
       <GlobalStyle />
