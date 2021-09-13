@@ -109,8 +109,8 @@ const SlideArrays = {
       title: "پودر کیک وانیلی زر ماکارونی",
       gift: "1,000",
       beforePrice: "21,300",
-      off: "27",
-      price: "15,500",
+      off: "67",
+      price: "6,500",
       url: "/pic3",
     },
     {

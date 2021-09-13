@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useSelector } from "react";
 import styled from "styled-components";
 import gift from "../images/asset 75.svg";
 import { Link } from "react-router-dom";
 import QueryBuilderRoundedIcon from "@material-ui/icons/QueryBuilderRounded";
+import SlideArrays from "./SlideArrays";
 
 function Card(props) {
   return (

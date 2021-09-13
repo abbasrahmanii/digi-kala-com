@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import GlobalStyle from "./Components/GlobalStyles";
 import Nav from "./Components/Nav";
@@ -6,23 +6,27 @@ import MainPage from "./Components/MainPage";
 import Page from "./Components/Page";
 import Top from "./Components/Top";
 import { Switch, Route, useLocation } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 function App() {
   const location = useLocation();
   return (
-    <DigiKala>
-      <GlobalStyle />
-      <Nav />
-      <Switch location={location} key={location.pathname}>
-        <Route path="/" exact>
-          <MainPage />
-        </Route>
-        <Route path="/page">
-          <Page />
-        </Route>
-      </Switch>
-      <Top />
-    </DigiKala>
+    <Provider store={store}>
+      <DigiKala>
+        <GlobalStyle />
+        <Nav />
+        <Switch location={location} key={location.pathname}>
+          <Route path="/" exact>
+            <MainPage />
+          </Route>
+          <Route path="/page">
+            <Page />
+          </Route>
+        </Switch>
+        <Top />
+      </DigiKala>
+    </Provider>
   );
 }
 

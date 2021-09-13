@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import wow from "../images/asset 20.png";
 import styled from "styled-components";
 import SliderTestRed from "./SliderTestRed";
@@ -6,38 +6,57 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import SlideArrays from "./SlideArrays";
+import { useSelector, useDispatch } from "react-redux";
+import { arrowLeftHandler, arrowRightHandler } from "../redux/actions";
 
 const SliderRed = (props) => {
-  const [translateR, setTranslateR] = useState(0);
-  const [sliderRed, setSliderRed] = useState(SlideArrays.itemsRed);
-  const [opacityLeftR, setOpacityLeftR] = useState(1);
-  const [opacityRightR, setOpacityRightR] = useState(1);
+  const dispatch = useDispatch();
+  // const { translateR, opacityLeftR, opacityRightR } = useSelector(
+  //   (state) => state
+  // );
+  const translateR = useSelector((state) => state.translateR);
+  const opacityLeftR = useSelector((state) => state.opacityLeftR);
+  const opacityRightR = useSelector((state) => state.opacityRightR);
+  // const dataRed = useSelector((state) => state.dataRed);
 
-  const arrowRightHandler = () => {
-    if (translateR !== 0) {
-      setTranslateR(translateR - 25.5);
-    }
-  };
-  const arrowLeftHandler = () => {
-    if (translateR !== (sliderRed.length - 4) * 25.5) {
-      setTranslateR(translateR + 25.5);
-    }
-  };
+  // const [translateR, setTranslateR] = useState(0);
+  const [sliderRed, setSliderRed] = useState(SlideArrays.itemsRed);
+  // const [opacityLeftR, setOpacityLeftR] = useState(1);
+  // const [opacityRightR, setOpacityRightR] = useState(1);
+
+  // const arrowRightHandler = () => {
+  //   if (translateR !== 0) {
+  //     setTranslateR(translateR - 25.5);
+  //   }
+  // };
+  // const arrowLeftHandler = () => {
+  //   if (translateR !== (sliderRed.length - 4) * 25.5) {
+  //     setTranslateR(translateR + 25.5);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   if (translateR !== 0) {
+  //     // setOpacityLeft(0.05);
+  //     setOpacityRightR(1);
+  //   } else {
+  //     // setOpacityLeft(1);
+  //     setOpacityRightR(0.05);
+  //   }
+  //   if (translateR !== (sliderRed.length - 4) * 25.5) {
+  //     // setOpacityRight(0.05);
+  //     setOpacityLeftR(1);
+  //   } else {
+  //     // setOpacityRight(1);
+  //     setOpacityLeftR(0.05);
+  //   }
+  // }, [translateR]);
 
   useEffect(() => {
-    if (translateR !== 0) {
-      // setOpacityLeft(0.05);
-      setOpacityRightR(1);
-    } else {
-      // setOpacityLeft(1);
-      setOpacityRightR(0.05);
-    }
-    if (translateR !== (sliderRed.length - 4) * 25.5) {
-      // setOpacityRight(0.05);
-      setOpacityLeftR(1);
-    } else {
-      // setOpacityRight(1);
-      setOpacityLeftR(0.05);
+    if (translateR === 102) {
+      dispatch(arrowLeftHandler());
+    } else if (translateR === 0) {
+      dispatch(arrowRightHandler());
     }
   }, [translateR]);
 
@@ -56,12 +75,16 @@ const SliderRed = (props) => {
             cursor="pointer"
             icon={faChevronRight}
             size="2x"
-            onClick={arrowRightHandler}
+            // onClick={arrowRightHandler}
+            // style={{ opacity: `${opacityRightR}` }}
+            onClick={() => dispatch(arrowRightHandler())}
             style={{ opacity: `${opacityRightR}` }}
+            arrowRightHandler
           />
           <SliderTestRed
             translateR={translateR}
             sliderRed={sliderRed}
+            // sliderRed={dataRed}
             getTime={props.getTime}
           />
           <FontAwesomeIcon
@@ -69,7 +92,9 @@ const SliderRed = (props) => {
             cursor="pointer"
             icon={faChevronLeft}
             size="2x"
-            onClick={arrowLeftHandler}
+            // onClick={arrowLeftHandler}
+            // style={{ opacity: `${opacityLeftR}` }}
+            onClick={() => dispatch(arrowLeftHandler())}
             style={{ opacity: `${opacityLeftR}` }}
           />
         </Left>

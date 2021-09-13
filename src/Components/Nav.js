@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import logo from "../images/asset 73.svg";
-import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
+// import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 
 const Nav = () => {
   return (

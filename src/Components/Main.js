@@ -1,24 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import headerPic from "../images/asset 17.jpeg";
 import gif from "../images/asset 18.gif";
 
 import sectionPic from "../images/asset 19.jpeg";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronCircleLeft,
-  faChevronCircleRight,
-} from "@fortawesome/free-solid-svg-icons";
-import SliderContent from "./SliderContent";
+
 import Example from "./Example";
 
 const Main = () => {
-  const [transform, useTransform] = useState({
-    translate: 0,
-    transition: 0.5,
-  });
-  const { translate, transition } = transform;
-  // console.log(SlideArrays);
   return (
     <MainStyled>
       <header>

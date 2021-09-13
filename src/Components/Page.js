@@ -3,7 +3,6 @@ import Typography from "@material-ui/core/Typography";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { makeStyles } from "@material-ui/core/styles";
 import { green, yellow } from "@material-ui/core/colors";
 import Tooltip from "@material-ui/core/Tooltip";
 import FavoriteBorderRoundedIcon from "@material-ui/icons/FavoriteBorderRounded";
@@ -20,20 +19,8 @@ import pic1 from "../images/asset 40.jpeg";
 import pic2 from "../images/asset 75.svg";
 
 const Page = (props) => {
-  // const useStyles = makeStyles((theme) => ({
-  //   fab: {
-  //     margin: theme.spacing(1),
-  //   },
-  //   absolute: {
-  //     position: "absolute",
-  //     bottom: theme.spacing(2),
-  //     right: theme.spacing(3),
-  //   },
-  // }));
-
   const handleClick = (event) => {
     event.preventDefault();
-    //   console.info("You clicked a breadcrumb.");
   };
   return (
     <div>
@@ -62,9 +49,7 @@ const Page = (props) => {
                 placement="right-center"
                 arrow
               >
-                {/* <Fab color="secondary" className={classes.fab}> */}
                 <FavoriteBorderRoundedIcon cursor="pointer" />
-                {/* </Fab> */}
               </Tooltip>
               <Tooltip title="اشتراک گذاری" placement="right-center" arrow>
                 <ShareRoundedIcon cursor="pointer" />
@@ -114,9 +99,9 @@ const Page = (props) => {
             />
             <span>۴.۳ (۶۹۵۶)</span>
             <span className="dot"></span>
-            <a href="">۵۲۷۵ دیدگاه کاربران</a>
+            <a href="#">۵۲۷۵ دیدگاه کاربران</a>
             <span className="dot"></span>
-            <a href="">۱۷ پرسش و پاسخ</a>
+            <a href="#">۱۷ پرسش و پاسخ</a>
             <Tooltip
               title="خریداران کالا با انتخاب یکی از گزینه‌های پیشنهاد یا عدم پیشنهاد، تجربه خرید خود را با کاربران به اشتراک می‌گذارند.
 "
