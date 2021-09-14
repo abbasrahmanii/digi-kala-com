@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Top = () => {
   return (
     <TopAddress>
-      <a href="#" className="top">
+      <a href="#top" className="top">
         Top
       </a>
     </TopAddress>

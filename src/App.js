@@ -15,6 +15,7 @@ function App() {
     <Provider store={store}>
       <DigiKala>
         <GlobalStyle />
+        <a name="top"></a>
         <Nav />
         <Switch location={location} key={location.pathname}>
           <Route path="/" exact>

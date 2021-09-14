@@ -1,2 +1,4 @@
-export const ARROW_RIGHT = "ARROW_RIGHT";
-export const ARROW_LEFT = "ARROW_LEFT";
+export const ARROW_RIGHT_RED = "ARROW_RIGHT_RED";
+export const ARROW_LEFT_RED = "ARROW_LEFT_RED";
+export const ARROW_RIGHT_GREEN = "ARROW_RIGHT_GREEN";
+export const ARROW_LEFT_GREEN = "ARROW_LEFT_GREEN";

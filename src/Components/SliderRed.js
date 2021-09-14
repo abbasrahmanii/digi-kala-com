@@ -7,7 +7,7 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import SlideArrays from "./SlideArrays";
 import { useSelector, useDispatch } from "react-redux";
-import { arrowLeftHandler, arrowRightHandler } from "../redux/actions";
+import { arrowLeftHandlerRed, arrowRightHandlerRed } from "../redux/actions";
 
 const SliderRed = (props) => {
   const dispatch = useDispatch();
@@ -54,9 +54,9 @@ const SliderRed = (props) => {
 
   useEffect(() => {
     if (translateR === 102) {
-      dispatch(arrowLeftHandler());
+      dispatch(arrowLeftHandlerRed());
     } else if (translateR === 0) {
-      dispatch(arrowRightHandler());
+      dispatch(arrowRightHandlerRed());
     }
   }, [translateR]);
 
@@ -77,7 +77,7 @@ const SliderRed = (props) => {
             size="2x"
             // onClick={arrowRightHandler}
             // style={{ opacity: `${opacityRightR}` }}
-            onClick={() => dispatch(arrowRightHandler())}
+            onClick={() => dispatch(arrowRightHandlerRed())}
             style={{ opacity: `${opacityRightR}` }}
             arrowRightHandler
           />
@@ -94,7 +94,7 @@ const SliderRed = (props) => {
             size="2x"
             // onClick={arrowLeftHandler}
             // style={{ opacity: `${opacityLeftR}` }}
-            onClick={() => dispatch(arrowLeftHandler())}
+            onClick={() => dispatch(arrowLeftHandlerRed())}
             style={{ opacity: `${opacityLeftR}` }}
           />
         </Left>

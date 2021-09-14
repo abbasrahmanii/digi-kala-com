@@ -7,38 +7,57 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import SlideArrays from "./SlideArrays";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  arrowLeftHandlerGreen,
+  arrowRightHandlerGreen,
+} from "../redux/actions";
 
 const SliderGreen = () => {
-  const [translateG, setTranslateG] = useState(0);
-  const [sliderGreen, setSliderGreen] = useState(SlideArrays.itemsGreen);
-  const [opacityLeftG, setOpacityLeftG] = useState(1);
-  const [opacityRightG, setOpacityRightG] = useState(1);
+  const dispatch = useDispatch();
 
-  const arrowRightHandler = () => {
-    if (translateG !== 0) {
-      setTranslateG(translateG - 25.5);
-    }
-  };
-  const arrowLeftHandler = () => {
-    if (translateG !== (sliderGreen.length - 4) * 25.5) {
-      setTranslateG(translateG + 25.5);
-    }
-  };
+  const translateG = useSelector((state) => state.translateG);
+  const opacityLeftG = useSelector((state) => state.opacityLeftG);
+  const opacityRightG = useSelector((state) => state.opacityRightG);
+
+  // const [translateG, setTranslateG] = useState(0);
+  const [sliderGreen, setSliderGreen] = useState(SlideArrays.itemsGreen);
+  // const [opacityLeftG, setOpacityLeftG] = useState(1);
+  // const [opacityRightG, setOpacityRightG] = useState(1);
+
+  // const arrowRightHandler = () => {
+  //   if (translateG !== 0) {
+  //     setTranslateG(translateG - 25.5);
+  //   }
+  // };
+  // const arrowLeftHandler = () => {
+  //   if (translateG !== (sliderGreen.length - 4) * 25.5) {
+  //     setTranslateG(translateG + 25.5);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   if (translateG !== 0) {
+  //     // setOpacityLeft(0.05);
+  //     setOpacityRightG(1);
+  //   } else {
+  //     // setOpacityLeft(1);
+  //     setOpacityRightG(0.05);
+  //   }
+  //   if (translateG !== (sliderGreen.length - 4) * 25.5) {
+  //     // setOpacityRight(0.05);
+  //     setOpacityLeftG(1);
+  //   } else {
+  //     // setOpacityRight(1);
+  //     setOpacityLeftG(0.05);
+  //   }
+  // }, [translateG]);
 
   useEffect(() => {
-    if (translateG !== 0) {
-      // setOpacityLeft(0.05);
-      setOpacityRightG(1);
-    } else {
-      // setOpacityLeft(1);
-      setOpacityRightG(0.05);
-    }
-    if (translateG !== (sliderGreen.length - 4) * 25.5) {
-      // setOpacityRight(0.05);
-      setOpacityLeftG(1);
-    } else {
-      // setOpacityRight(1);
-      setOpacityLeftG(0.05);
+    if (translateG === 102) {
+      dispatch(arrowLeftHandlerGreen());
+    } else if (translateG === 0) {
+      dispatch(arrowRightHandlerGreen());
     }
   }, [translateG]);
 
@@ -57,7 +76,7 @@ const SliderGreen = () => {
             cursor="pointer"
             icon={faChevronRight}
             size="2x"
-            onClick={arrowRightHandler}
+            onClick={() => dispatch(arrowRightHandlerGreen())}
             style={{ opacity: `${opacityRightG}` }}
           />
           <SliderTestGreen translateG={translateG} sliderGreen={sliderGreen} />
@@ -66,7 +85,7 @@ const SliderGreen = () => {
             cursor="pointer"
             icon={faChevronLeft}
             size="2x"
-            onClick={arrowLeftHandler}
+            onClick={() => dispatch(arrowLeftHandlerGreen())}
             style={{ opacity: `${opacityLeftG}` }}
           />
         </Left>
