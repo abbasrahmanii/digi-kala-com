@@ -4,14 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import logo from "../images/asset 73.svg";
-// import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 
 const Nav = () => {
   return (
     <NavBar>
       <Right>
         <a href="#">
-          <img src={logo} alt="" />
+          <img src={logo} alt="logo" />
         </a>
         <input type="text" placeholder="جستجو در دیجی کالا ..." />
       </Right>
@@ -69,7 +68,7 @@ const Left = styled.div`
   width: 15%;
   padding: 0.3rem;
   .login {
-    width: 70%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     border: 1px solid #aaaaaa;

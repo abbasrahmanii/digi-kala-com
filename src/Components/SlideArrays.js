@@ -27,6 +27,7 @@ const SlideArrays = {
       price: "146,250",
       express: express,
       progress: 90,
+      link: "/page/r1",
     },
     {
       cover: red2,
@@ -37,6 +38,7 @@ const SlideArrays = {
       price: "45,000",
       express: express,
       progress: 1,
+      link: "/page/r2",
     },
     {
       cover: red3,
@@ -45,6 +47,7 @@ const SlideArrays = {
       off: "10",
       price: "396,000",
       progress: 20,
+      link: "/page/r3",
     },
     {
       cover: red4,
@@ -53,6 +56,7 @@ const SlideArrays = {
       off: "11",
       price: "159,000",
       progress: 80,
+      link: "/page/r4",
     },
     {
       cover: red5,
@@ -60,6 +64,7 @@ const SlideArrays = {
       beforePrice: "2,275,000",
       off: "10",
       price: "2,047,500",
+      link: "/page/r5",
     },
     {
       cover: red6,
@@ -67,6 +72,7 @@ const SlideArrays = {
       beforePrice: "338,000",
       off: "6",
       price: "318,000",
+      link: "/page/r6",
     },
     {
       cover: red7,
@@ -75,6 +81,7 @@ const SlideArrays = {
       beforePrice: "2,431,000",
       off: "3",
       price: "2,338,070",
+      link: "/page/r7",
     },
     {
       cover: red8,
@@ -82,6 +89,7 @@ const SlideArrays = {
       beforePrice: "1,989,500",
       off: "3",
       price: "1,929,500",
+      link: "/page/r8",
     },
   ],
   itemsGreen: [
@@ -92,7 +100,7 @@ const SlideArrays = {
       beforePrice: "115,000",
       off: "6",
       price: "108,500",
-      url: "/pic1",
+      link: "/page/g1",
     },
     {
       cover: green2,
@@ -102,7 +110,7 @@ const SlideArrays = {
       off: "10",
       price: "25,900",
       express: express,
-      url: "/pic2",
+      link: "/page/g2",
     },
     {
       cover: green3,
@@ -111,7 +119,7 @@ const SlideArrays = {
       beforePrice: "21,300",
       off: "67",
       price: "6,500",
-      url: "/pic3",
+      link: "/page/g3",
     },
     {
       cover: green4,
@@ -120,7 +128,7 @@ const SlideArrays = {
       off: "5",
       price: "36,100",
       express: express,
-      url: "/pic4",
+      link: "/page/g4",
     },
     {
       cover: green5,
@@ -129,7 +137,7 @@ const SlideArrays = {
       off: "5",
       price: "36,100",
       express: express,
-      url: "/pic5",
+      link: "/page/g5",
     },
     {
       cover: green6,
@@ -139,7 +147,7 @@ const SlideArrays = {
       off: "10",
       price: "52,400",
       express: express,
-      url: "/pic6",
+      link: "/page/g6",
     },
     {
       cover: green7,
@@ -148,7 +156,7 @@ const SlideArrays = {
       beforePrice: "32,900",
       off: "6",
       price: "32,000",
-      url: "/pic7",
+      link: "/page/g7",
     },
     {
       cover: green8,
@@ -158,7 +166,7 @@ const SlideArrays = {
       off: "2",
       price: "33,850",
       express: express,
-      url: "/pic8",
+      link: "/page/g8",
     },
   ],
 };

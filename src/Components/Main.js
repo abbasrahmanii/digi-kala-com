@@ -12,7 +12,7 @@ const Main = () => {
     <MainStyled>
       <header>
         <a href="#">
-          <img src={headerPic} alt="hi" />
+          <img src={headerPic} alt="headerPic" loading="lazy" />
         </a>
       </header>
       <section>
@@ -21,10 +21,10 @@ const Main = () => {
         </MainSlider>
         <div className="left">
           <a href="#">
-            <img src={gif} alt="" />
+            <img src={gif} alt="gif" loading="lazy" />
           </a>
           <a href="https://www.digikala.com/product-list/plp_8074037/?pageno=2&sortby=20&promo_name=%DA%A9%D9%81%D8%B4%D8%AA+%D8%B1%D9%88+%DA%A9%D8%B4%D9%81+%DA%A9%D9%86%21&promo_position=home_left_banner_bottom&promo_creative=77966&bCode=77966">
-            <img src={sectionPic} alt="" />
+            <img src={sectionPic} alt="sectionPic" loading="lazy" />
           </a>
         </div>
       </section>

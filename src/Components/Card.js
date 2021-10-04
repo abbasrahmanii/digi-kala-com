@@ -1,14 +1,13 @@
-import React, { useSelector } from "react";
+import React from "react";
 import styled from "styled-components";
 import gift from "../images/asset 75.svg";
 import { Link } from "react-router-dom";
 import QueryBuilderRoundedIcon from "@material-ui/icons/QueryBuilderRounded";
-import SlideArrays from "./SlideArrays";
 
 function Card(props) {
   return (
     <CardStyle>
-      <Link className="link" to="/page" img={props.item.cover}>
+      <Link className="link" to={props.item.link} img={props.item.cover}>
         <div className="image">
           <img id="one" src={props.item.cover} alt={props.item.cover} />
           <img id="two" src={props.item.express} alt={props.item.express} />
@@ -97,8 +96,8 @@ const CardStyle = styled.div`
         text-align: right;
         display: flex;
         justify-content: flex-start;
-        min-height: 5vh;
-        margin-bottom: 1rem;
+        min-height: 3vh;
+        margin-bottom: 0.75rem;
       }
       .gift {
         text-align: right;
@@ -114,16 +113,13 @@ const CardStyle = styled.div`
           justify-content: flex-start;
           img {
             margin-left: 0.2rem;
-            /* width: 10%; */
           }
         }
       }
       .price {
-        /* display: flex; */
         width: 95%;
         justify-content: flex-end;
-        height: max-content;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.2rem;
         span {
           background-color: #ef394e;
           padding: 0.2rem 0.4rem;

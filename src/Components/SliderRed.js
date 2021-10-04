@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import wow from "../images/asset 20.png";
 import styled from "styled-components";
 import SliderTestRed from "./SliderTestRed";
@@ -65,7 +65,7 @@ const SliderRed = (props) => {
       <section>
         <Right>
           <a href="#">
-            <img src={wow} alt="" />
+            <img src={wow} alt="wow" loading="lazy" />
           </a>
           <a href="#">مشاهده همه</a>
         </Right>

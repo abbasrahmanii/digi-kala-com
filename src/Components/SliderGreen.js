@@ -20,38 +20,7 @@ const SliderGreen = () => {
   const opacityLeftG = useSelector((state) => state.opacityLeftG);
   const opacityRightG = useSelector((state) => state.opacityRightG);
 
-  // const [translateG, setTranslateG] = useState(0);
   const [sliderGreen, setSliderGreen] = useState(SlideArrays.itemsGreen);
-  // const [opacityLeftG, setOpacityLeftG] = useState(1);
-  // const [opacityRightG, setOpacityRightG] = useState(1);
-
-  // const arrowRightHandler = () => {
-  //   if (translateG !== 0) {
-  //     setTranslateG(translateG - 25.5);
-  //   }
-  // };
-  // const arrowLeftHandler = () => {
-  //   if (translateG !== (sliderGreen.length - 4) * 25.5) {
-  //     setTranslateG(translateG + 25.5);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (translateG !== 0) {
-  //     // setOpacityLeft(0.05);
-  //     setOpacityRightG(1);
-  //   } else {
-  //     // setOpacityLeft(1);
-  //     setOpacityRightG(0.05);
-  //   }
-  //   if (translateG !== (sliderGreen.length - 4) * 25.5) {
-  //     // setOpacityRight(0.05);
-  //     setOpacityLeftG(1);
-  //   } else {
-  //     // setOpacityRight(1);
-  //     setOpacityLeftG(0.05);
-  //   }
-  // }, [translateG]);
 
   useEffect(() => {
     if (translateG === 102) {

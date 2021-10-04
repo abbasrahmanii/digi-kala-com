@@ -1,19 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-    /* @font-face {
-    font-family: "Yekan";
-    src: local("Yekan"), url("./Fonts/Yekan.ttf") format("truetype");
-    font-weight: bold;
-    }
-  @font-face {
-      font-family: 'Vazir';
-      src: url('http://fonts.codearena.ir/rastikerdar/vazir/vazir.eot');
-      src: url('http://fonts.codearena.ir/rastikerdar/vazir/vazir.eot?#iefix') format('embedded-opentype'),
-           url('http://fonts.codearena.ir/rastikerdar/vazir/vazir.woff') format('woff'),
-           url('http://fonts.codearena.ir/rastikerdar/vazir/vazir.ttf') format('truetype');
-      font-weight: normal;
-    }  */
     @font-face {
     font-family: IRANSans;
     font-style: normal;
@@ -74,6 +61,9 @@ body {
     font-family: "IRANSans", sans-serif;
     font-style: normal;
     font-weight: 500;
+}
+a{
+    text-decoration: none;
 }
 `;
 

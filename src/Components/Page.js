@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import { Link } from "react-router-dom";
@@ -17,11 +17,21 @@ import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 import ChevronLeftRoundedIcon from "@material-ui/icons/ChevronLeftRounded";
 import pic1 from "../images/asset 40.jpeg";
 import pic2 from "../images/asset 75.svg";
+import SlideArrays from "./SlideArrays";
 
-const Page = (props) => {
+const Page = () => {
+  const link = window.location.pathname;
+
+  const exampleRed = SlideArrays.itemsRed.filter((data) => data.link === link);
+  const exampleGreen = SlideArrays.itemsGreen.filter(
+    (data) => data.link === link
+  );
+  const pageArray = exampleRed[0] || exampleGreen[0];
+
   const handleClick = (event) => {
     event.preventDefault();
   };
+
   return (
     <div>
       <BreadcrumbsStyle>
@@ -72,14 +82,12 @@ const Page = (props) => {
               </Tooltip>
             </div>
             <div className="image">
-              <img src={pic1} alt="pic1" />
+              <img src={pageArray.cover} alt="pic1" />
             </div>
           </div>
         </div>
         <div className="center">
-          <h1 className="title">
-            رول ضد تعریق زنانه شون مدل Pink Princess حجم 50 میلی لیتر
-          </h1>
+          <h1 className="title">{pageArray.title}</h1>
           <span className="description">
             Schon Pink Princess Roll-On Deodorant 50ml For Women
           </span>

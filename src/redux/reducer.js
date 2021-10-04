@@ -66,7 +66,7 @@ const reducer = (state = initialState, action) => {
       } else {
         return {
           ...state,
-          opacityRightG: 0.5,
+          opacityRightG: 0.1,
         };
       }
     default:
