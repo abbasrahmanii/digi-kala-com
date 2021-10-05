@@ -4,7 +4,6 @@ import GlobalStyle from "./Components/GlobalStyles";
 import Nav from "./Components/Nav";
 import MainPage from "./Components/MainPage";
 import Page from "./Components/Page";
-import Top from "./Components/Top";
 import Footer from "./Components/Footer";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -26,7 +25,6 @@ function App() {
             <Page />
           </Route>
         </Switch>
-        <Top />
         <Footer />
       </DigiKala>
     </Provider>

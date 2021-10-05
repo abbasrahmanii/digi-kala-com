@@ -1,8 +1,8 @@
-import { createStore, combineReducers } from "redux";
+import { createStore } from "redux";
 import reducer from "./reducer";
 
 // const rootReducer = combineReducers({
-//   slider: reducer,
+//   reducer: reducer,
 // });
 
 const store = createStore(reducer);

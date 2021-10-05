@@ -33,7 +33,7 @@ const Main = () => {
 };
 
 const MainStyled = styled.main`
-  min-height: 75vh;
+  min-height: 65vh;
   width: 100%;
   background: #f1f1f1;
   header {
@@ -55,11 +55,16 @@ const MainStyled = styled.main`
     padding: 1rem 0rem;
     .left {
       width: 33.5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
       a {
         img {
           width: 100%;
           object-fit: cover;
           border-radius: 15px;
+          margin-bottom: 1.5rem;
         }
         &:first-child {
           margin-bottom: 0.7rem;
@@ -72,9 +77,9 @@ const MainSlider = styled.div`
   overflow: hidden;
   position: relative;
   width: 840px;
-  height: 100%;
   display: flex;
   border-radius: 15px;
+  margin-left: 1rem;
 `;
 
 export default Main;

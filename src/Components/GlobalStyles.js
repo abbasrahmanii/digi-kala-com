@@ -65,6 +65,9 @@ body {
 a{
     text-decoration: none;
 }
+ul{
+    list-style: none;
+}
 `;
 
 export default GlobalStyle;

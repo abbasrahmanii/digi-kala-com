@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import { Link } from "react-router-dom";
@@ -15,7 +15,6 @@ import ThumbUpAltOutlinedIcon from "@material-ui/icons/ThumbUpAltOutlined";
 import StarRateIcon from "@material-ui/icons/StarRate";
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 import ChevronLeftRoundedIcon from "@material-ui/icons/ChevronLeftRounded";
-import pic1 from "../images/asset 40.jpeg";
 import pic2 from "../images/asset 75.svg";
 import SlideArrays from "./SlideArrays";
 
