@@ -68,6 +68,9 @@ a{
 ul{
     list-style: none;
 }
+input {
+    outline:0;
+}
 `;
 
 export default GlobalStyle;

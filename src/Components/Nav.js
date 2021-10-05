@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
@@ -9,9 +10,9 @@ const Nav = () => {
   return (
     <NavBar>
       <Right>
-        <a href="#">
+        <Link to="/">
           <img src={logo} alt="logo" />
-        </a>
+        </Link>
         <input type="text" placeholder="جستجو در دیجی کالا ..." />
       </Right>
       <Left>
