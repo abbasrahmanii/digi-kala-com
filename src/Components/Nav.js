@@ -66,10 +66,10 @@ const Left = styled.div`
   justify-content: space-between;
   align-items: center;
   color: #616161;
-  width: 15%;
+  min-width: 15%;
   padding: 0.3rem;
   .login {
-    width: 80%;
+    min-width: 80%;
     display: flex;
     justify-content: space-between;
     border: 1px solid #aaaaaa;
