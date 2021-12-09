@@ -1,32 +1,41 @@
-import React, { useState, useEffect } from "react";
-import wow from "../images/asset 39.png";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import wow from "../../images/asset 39.png";
 import styled from "styled-components";
-// import TestTwo from "./TestTwo";
 import SliderTestGreen from "./SliderTestGreen";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import SlideArrays from "./SlideArrays";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  arrowLeftHandlerGreen,
-  arrowRightHandlerGreen,
-} from "../redux/actions";
+import { Data } from "../../data";
 
 const SliderGreen = () => {
-  const dispatch = useDispatch();
+  const [translateG, setTranslateG] = useState(0);
+  const [opacityLeftG, setOpacityLeftG] = useState(1);
+  const [opacityRightG, setOpacityRightG] = useState(0.1);
 
-  const translateG = useSelector((state) => state.translateG);
-  const opacityLeftG = useSelector((state) => state.opacityLeftG);
-  const opacityRightG = useSelector((state) => state.opacityRightG);
+  const arrowRightHandler = () => {
+    if (translateG !== 0) {
+      setTranslateG((prev) => prev - 25.5);
+      setOpacityLeftG(1);
+    }
+  };
 
-  const [sliderGreen, setSliderGreen] = useState(SlideArrays.itemsGreen);
+  const arrowLeftHandler = () => {
+    if (translateG !== 102) {
+      setTranslateG((prev) => prev + 25.5);
+      setOpacityRightG(1);
+    }
+  };
+
+  const sliderGreen = Data.products.filter(
+    (product) => product.category === "Green"
+  );
 
   useEffect(() => {
     if (translateG === 102) {
-      dispatch(arrowLeftHandlerGreen());
+      setOpacityLeftG(0.1);
     } else if (translateG === 0) {
-      dispatch(arrowRightHandlerGreen());
+      setOpacityRightG(0.1);
     }
   }, [translateG]);
 
@@ -34,10 +43,10 @@ const SliderGreen = () => {
     <Slider>
       <section>
         <Right>
-          <a href="#">
+          <Link to="/">
             <img src={wow} alt="" />
-          </a>
-          <a href="#">مشاهده همه</a>
+          </Link>
+          <Link to="/">مشاهده همه</Link>
         </Right>
         <Left>
           <FontAwesomeIcon
@@ -45,7 +54,7 @@ const SliderGreen = () => {
             cursor="pointer"
             icon={faChevronRight}
             size="2x"
-            onClick={() => dispatch(arrowRightHandlerGreen())}
+            onClick={arrowRightHandler}
             style={{ opacity: `${opacityRightG}` }}
           />
           <SliderTestGreen translateG={translateG} sliderGreen={sliderGreen} />
@@ -54,7 +63,7 @@ const SliderGreen = () => {
             cursor="pointer"
             icon={faChevronLeft}
             size="2x"
-            onClick={() => dispatch(arrowLeftHandlerGreen())}
+            onClick={arrowLeftHandler}
             style={{ opacity: `${opacityLeftG}` }}
           />
         </Left>

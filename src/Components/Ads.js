@@ -2,19 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
-import pic1 from "../images/digi1.jpg";
-import pic2 from "../images/digi1.jpg";
-import pic3 from "../images/digi1.jpg";
-import pic4 from "../images/digi1.jpg";
-import pic5 from "../images/digi1.jpg";
-import pic6 from "../images/digi1.jpg";
-import pic7 from "../images/digi1.jpg";
-import pic8 from "../images/digi1.jpg";
-import pic9 from "../images/digi1.jpg";
-import pic10 from "../images/digi1.jpg";
+import pic1 from "../images/asset 84.svg";
+import pic2 from "../images/asset 84.svg";
+import pic3 from "../images/asset 84.svg";
+import pic4 from "../images/asset 84.svg";
+import pic5 from "../images/asset 84.svg";
+import pic6 from "../images/asset 84.svg";
+import pic7 from "../images/asset 84.svg";
+import pic8 from "../images/asset 84.svg";
+import pic9 from "../images/asset 84.svg";
+import pic10 from "../images/asset 84.svg";
 import pic11 from "../images/digi1.jpg";
 import pic12 from "../images/digi2.jpg";
-import picDefault from "../images/asset 84.svg";
 
 const Ads = () => {
   const category = [
@@ -69,19 +68,19 @@ const Ads = () => {
   return (
     <Ad>
       <Sponsored>
-        <a href="#" className="a">
+        <Link to="/" className="a">
           <img src={pic11} alt="pic1" />
-        </a>
-        <a href="#" className="a">
+        </Link>
+        <Link to="/" className="a">
           <img src={pic12} alt="pic2" />
-        </a>
+        </Link>
       </Sponsored>
       <Category>
         <h1>بیش از ۴،۰۰۰،۰۰۰ کالا در دسته بندی های مختلف</h1>
         <div>
           {category.map((data) => (
             <Link to={data.link} key={data.id}>
-              <img src={picDefault} alt="default" />
+              <img src={data.pic} alt={data.pic} />
               <p>{data.title}</p>
               <p>+ {data.num} کالا</p>
             </Link>
@@ -133,8 +132,9 @@ const Category = styled.div`
   box-shadow: 0 5px 14px -5px #11111160;
   border-radius: 20px;
   h1 {
-    font-size: 1.7rem;
-    color: #635b5b;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #888;
     margin: 0.5rem;
   }
   div {

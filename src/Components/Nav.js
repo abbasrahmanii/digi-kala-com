@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import logo from "../images/asset 73.svg";
+import { useSelector, useDispatch } from "react-redux";
 
 const Nav = () => {
+  const [cartBadge, setCartBadge] = useState(0);
   return (
     <NavBar>
       <Right>
@@ -16,14 +18,14 @@ const Nav = () => {
         <input type="text" placeholder="جستجو در دیجی کالا ..." />
       </Right>
       <Left>
-        <a href="#" className="login">
+        <Link to="/login" className="login" target="_blank">
           <FontAwesomeIcon icon={faUser} color="#616161" />
           <span>ورود به حساب کاربری</span>
-        </a>
+        </Link>
         <span className="line"></span>
-        <a href="#" className="shop">
+        <Link to="/cart" className="shop">
           <FontAwesomeIcon icon={faShoppingCart} color="#616161" />
-        </a>
+        </Link>
       </Left>
     </NavBar>
   );
@@ -34,7 +36,7 @@ const NavBar = styled.nav`
   top: 0;
   width: 100%;
   background-color: #fff;
-  min-height: 5vh;
+  min-height: 10vh;
   margin: 0 auto;
   padding: 0.3rem 0.7rem;
   display: flex;

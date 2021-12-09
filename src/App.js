@@ -1,31 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 import GlobalStyle from "./Components/GlobalStyles";
-import Nav from "./Components/Nav";
-import MainPage from "./Components/MainPage";
-import Page from "./Components/Page";
-import Footer from "./Components/Footer";
+import MainPage from "./Pages/MainPage";
+import ProductPage from "./Pages/ProductPage";
+import CartPage from "./Pages/CartPage";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import Login from "./Pages/Login";
 
 function App() {
   const location = useLocation();
+
   return (
     <Provider store={store}>
       <DigiKala>
         <GlobalStyle />
-        <a name="top"></a>
-        <Nav />
         <Switch location={location} key={location.pathname}>
           <Route path="/" exact>
             <MainPage />
           </Route>
-          <Route path="/page/:id" exact>
-            <Page />
+          <Route path="/page/:id">
+            <ProductPage />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/cart">
+            <CartPage />
           </Route>
         </Switch>
-        <Footer />
       </DigiKala>
     </Provider>
   );

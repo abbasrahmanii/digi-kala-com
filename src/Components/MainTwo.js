@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Pic1 from "../images/asset 35.jpeg";
 import Pic2 from "../images/asset 34.jpeg";
 import Pic3 from "../images/asset 36.jpeg";
@@ -9,18 +10,18 @@ const MainTwo = () => {
   return (
     <Main>
       <Pics>
-        <a href="#">
-          <img src={Pic1} alt="" />
-        </a>
-        <a href="#">
-          <img src={Pic2} alt="" />
-        </a>
-        <a href="#">
-          <img src={Pic3} alt="" />
-        </a>
-        <a href="#">
-          <img src={Pic4} alt="" />
-        </a>
+        <Link to="/">
+          <img src={Pic1} alt="pic1" />
+        </Link>
+        <Link to="/">
+          <img src={Pic2} alt="pic2" />
+        </Link>
+        <Link to="/">
+          <img src={Pic3} alt="pic3" />
+        </Link>
+        <Link to="/">
+          <img src={Pic4} alt="pic4" />
+        </Link>
       </Pics>
     </Main>
   );

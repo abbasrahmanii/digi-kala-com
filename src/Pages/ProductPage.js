@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router";
 import Typography from "@material-ui/core/Typography";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { green, yellow } from "@material-ui/core/colors";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -16,23 +17,56 @@ import StarRateIcon from "@material-ui/icons/StarRate";
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 import ChevronLeftRoundedIcon from "@material-ui/icons/ChevronLeftRounded";
 import pic2 from "../images/asset 75.svg";
-import SlideArrays from "./SlideArrays";
+import { addToCart } from "../redux";
+// import { Data } from "../data";
 
-const Page = () => {
-  const link = window.location.pathname;
+import { useSelector, useDispatch } from "react-redux";
 
-  const exampleRed = SlideArrays.itemsRed.filter((data) => data.link === link);
-  const exampleGreen = SlideArrays.itemsGreen.filter(
-    (data) => data.link === link
-  );
-  const pageArray = exampleRed[0] || exampleGreen[0];
+const ProductPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  const history = useHistory();
+  const location = useLocation();
+  const link = location.pathname;
+
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  const products = useSelector((state) => state.products);
+  const product = products.find((data) => data.link === link);
+
+  let breadcrumbs = "";
+  if (product.category === "Red") {
+    breadcrumbs = "پیشنهاد شگفت انگیز";
+  } else {
+    breadcrumbs = "محصولات سوپرمارکتی";
+  }
 
   const handleClick = (event) => {
     event.preventDefault();
   };
+  const heightValue = window.innerHeight;
+  let scroll = heightValue / 2;
+
+  const addToCartHandler = (product) => {
+    const existItem = cart.find((item) => item.id === product.id);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    const newProduct = { ...product, quantity };
+    // if (product.countInStock < quantity) {
+    //   window.alert("Sorry. Product is out of stock");
+    //   return;
+    // }
+    dispatch(addToCart(newProduct));
+    history.push("/cart");
+  };
 
   return (
     <div>
+      <Progress
+        class="readProgressBar"
+        value={scroll}
+        max={heightValue}
+      ></Progress>
       <BreadcrumbsStyle>
         <Breadcrumbs aria-label="breadcrumb">
           <Link color="inherit" to="/">
@@ -43,14 +77,14 @@ const Page = () => {
             to="/getting-started/installation/"
             onClick={handleClick}
           >
-            محصولات سوپر مارکتی
+            {breadcrumbs}
           </Link>
-          <Typography color="textPrimary">پمینا</Typography>
+          <Typography color="textPrimary">{product.brand}</Typography>
         </Breadcrumbs>
       </BreadcrumbsStyle>
       <Section>
         <div className="right">
-          <h1 className="special-offer">پیشنهاد شگفت انگیز</h1>
+          <h1 className="special-offer">{breadcrumbs}</h1>
           <div className="right-bottom">
             <div className="icons">
               <Tooltip
@@ -81,12 +115,12 @@ const Page = () => {
               </Tooltip>
             </div>
             <div className="image">
-              <img src={pageArray.cover} alt="pic1" />
+              <img src={product.image} alt="pic1" />
             </div>
           </div>
         </div>
         <div className="center">
-          <h1 className="title">{pageArray.title}</h1>
+          <h1 className="title">{product.name}</h1>
           <span className="description">
             Schon Pink Princess Roll-On Deodorant 50ml For Women
           </span>
@@ -106,9 +140,9 @@ const Page = () => {
             />
             <span>۴.۳ (۶۹۵۶)</span>
             <span className="dot"></span>
-            <a href="#">۵۲۷۵ دیدگاه کاربران</a>
+            <Link to="/">۵۲۷۵ دیدگاه کاربران</Link>
             <span className="dot"></span>
-            <a href="#">۱۷ پرسش و پاسخ</a>
+            <Link to="/">۱۷ پرسش و پاسخ</Link>
             <Tooltip
               title="خریداران کالا با انتخاب یکی از گزینه‌های پیشنهاد یا عدم پیشنهاد، تجربه خرید خود را با کاربران به اشتراک می‌گذارند.
 "
@@ -129,12 +163,12 @@ const Page = () => {
             <div class="center-bottom-one">
               <div>
                 <img src={pic2} alt="pic2" />
-                <span class="">خدمات ویژه کاربران دیجی‌پلاس</span>
+                <span>خدمات ویژه کاربران دیجی‌پلاس</span>
               </div>
-              <a href="/page" class="">
+              <Link to="/">
                 شما هم عضو شوید
                 <ChevronLeftRoundedIcon />
-              </a>
+              </Link>
             </div>
             <div class="center-bottom-two">
               <span class="">۲,۰۰۰ تومان هدیه نقدی</span>
@@ -148,7 +182,7 @@ const Page = () => {
           <h1>فروشنده</h1>
           <div>
             <div>
-              <img src="" alt="" />
+              {/* <img src="" alt="" /> */}
               <div>
                 <span>دیجی کالا</span>
                 <span>عملکرد عالی</span>
@@ -159,11 +193,26 @@ const Page = () => {
               <span>گارانتی اصالت و سلامت فیزیکی کالا</span>
             </div>
           </div>
+          <button onClick={() => addToCartHandler(product)}>
+            افزودن به سبد خرید
+          </button>
         </div>
       </Section>
     </div>
   );
 };
+
+const Progress = styled.progress`
+  width: 100%;
+  position: fixed;
+  top: 10vh;
+  right: 0;
+  height: 2px;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  z-index: 99997 !important;
+`;
 
 const BreadcrumbsStyle = styled.div`
   width: 95%;
@@ -225,9 +274,8 @@ const Section = styled.div`
     }
   }
   .center {
-    width: 35%;
+    width: 40%;
     min-height: 80vh;
-    /* background-color: #d4d4d4; */
     .title {
       margin-top: 0px;
       margin-bottom: 10px;
@@ -351,13 +399,22 @@ const Section = styled.div`
     }
   }
   .left {
-    width: 30%;
+    width: 25%;
     min-height: 73vh;
     background-color: #f5f5f5;
     border: 1px solid #707070;
     border-radius: 15px;
     margin-top: 7vh;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    button {
+      padding: 1rem;
+      background: #c13121;
+      color: #fff;
+    }
   }
 `;
 
-export default Page;
+export default ProductPage;

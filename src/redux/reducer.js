@@ -1,74 +1,35 @@
-import {
-  ARROW_RIGHT_RED,
-  ARROW_LEFT_RED,
-  ARROW_RIGHT_GREEN,
-  ARROW_LEFT_GREEN,
-} from "./actionTypes";
-// import SlideArrays from "./SlideArrays";
+import { ADD_TO_CART, REMOVE_CART } from "./actionTypes";
+import { allProduct } from "../data";
+import Cookies from "js-cookie";
 
 const initialState = {
-  translateR: 0,
-  opacityLeftR: 1,
-  opacityRightR: 0.1,
-  translateG: 0,
-  opacityLeftG: 1,
-  opacityRightG: 0.1,
+  products: allProduct(),
+  cart: Cookies.get("cart") ? JSON.parse(Cookies.get("cart")) : [],
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ARROW_LEFT_RED:
-      if (state.translateR !== 102) {
-        return {
-          ...state,
-          translateR: state.translateR + 25.5,
-          opacityRightR: 1,
-        };
-      } else {
-        return {
-          ...state,
-          opacityLeftR: 0.1,
-        };
-      }
-    case ARROW_RIGHT_RED:
-      if (state.translateR !== 0) {
-        return {
-          ...state,
-          translateR: state.translateR - 25.5,
-          opacityLeftR: 1,
-        };
-      } else {
-        return {
-          ...state,
-          opacityRightR: 0.1,
-        };
-      }
-    case ARROW_LEFT_GREEN:
-      if (state.translateG !== 102) {
-        return {
-          ...state,
-          translateG: state.translateG + 25.5,
-          opacityRightG: 1,
-        };
-      } else {
-        return {
-          ...state,
-          opacityLeftG: 0.1,
-        };
-      }
-    case ARROW_RIGHT_GREEN:
-      if (state.translateG !== 0) {
-        return {
-          ...state,
-          translateG: state.translateG - 25.5,
-          opacityLeftG: 1,
-        };
-      } else {
-        return {
-          ...state,
-          opacityRightG: 0.1,
-        };
-      }
+    case ADD_TO_CART:
+      const newItem = action.payload;
+      const existItem = state.cart.find((item) => item.name === newItem.name);
+      const cart = existItem
+        ? state.cart.map((item) =>
+            item.name === existItem.name ? newItem : item
+          )
+        : [...state.cart, newItem];
+      Cookies.set("cart", JSON.stringify(cart));
+      return {
+        ...state,
+        cart,
+      };
+    case REMOVE_CART: {
+      const cart = state.cart.filter((item) => item.id !== action.payload.id);
+      Cookies.set("cart", JSON.stringify(cart));
+      return {
+        ...state,
+        cart,
+      };
+    }
     default:
       return state;
   }

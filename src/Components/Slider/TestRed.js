@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Card";
+import Card from "../Card";
 
 function TestRed(props) {
   return (
@@ -13,7 +13,7 @@ function TestRed(props) {
       }}
     >
       {props.sliderRed.map((item, i) => (
-        <Card item={item} key={i} getTime={props.getTime} />
+        <Card item={item} key={item.id} getTime={props.getTime} />
       ))}
     </div>
   );

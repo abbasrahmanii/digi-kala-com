@@ -1,62 +1,42 @@
-import React, { useState, useEffect } from "react";
-import wow from "../images/asset 20.png";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import wow from "../../images/asset 20.png";
 import styled from "styled-components";
 import SliderTestRed from "./SliderTestRed";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import SlideArrays from "./SlideArrays";
-import { useSelector, useDispatch } from "react-redux";
-import { arrowLeftHandlerRed, arrowRightHandlerRed } from "../redux/actions";
+import { Data } from "../../data";
 
 const SliderRed = (props) => {
-  const dispatch = useDispatch();
-  // const { translateR, opacityLeftR, opacityRightR } = useSelector(
-  //   (state) => state
-  // );
-  const translateR = useSelector((state) => state.translateR);
-  const opacityLeftR = useSelector((state) => state.opacityLeftR);
-  const opacityRightR = useSelector((state) => state.opacityRightR);
-  // const dataRed = useSelector((state) => state.dataRed);
+  const [translateR, setTranslateR] = useState(0);
+  const [opacityLeftR, setOpacityLeftR] = useState(1);
+  const [opacityRightR, setOpacityRightR] = useState(0.1);
 
-  // const [translateR, setTranslateR] = useState(0);
-  const [sliderRed, setSliderRed] = useState(SlideArrays.itemsRed);
-  // const [opacityLeftR, setOpacityLeftR] = useState(1);
-  // const [opacityRightR, setOpacityRightR] = useState(1);
+  const arrowRightHandler = () => {
+    if (translateR !== 0) {
+      setTranslateR((prev) => prev - 25.5);
+      setOpacityLeftR(1);
+    }
+  };
 
-  // const arrowRightHandler = () => {
-  //   if (translateR !== 0) {
-  //     setTranslateR(translateR - 25.5);
-  //   }
-  // };
-  // const arrowLeftHandler = () => {
-  //   if (translateR !== (sliderRed.length - 4) * 25.5) {
-  //     setTranslateR(translateR + 25.5);
-  //   }
-  // };
+  const arrowLeftHandler = () => {
+    if (translateR !== 102) {
+      setTranslateR((prev) => prev + 25.5);
+      setOpacityRightR(1);
+    }
+  };
 
-  // useEffect(() => {
-  //   if (translateR !== 0) {
-  //     // setOpacityLeft(0.05);
-  //     setOpacityRightR(1);
-  //   } else {
-  //     // setOpacityLeft(1);
-  //     setOpacityRightR(0.05);
-  //   }
-  //   if (translateR !== (sliderRed.length - 4) * 25.5) {
-  //     // setOpacityRight(0.05);
-  //     setOpacityLeftR(1);
-  //   } else {
-  //     // setOpacityRight(1);
-  //     setOpacityLeftR(0.05);
-  //   }
-  // }, [translateR]);
+  // const sliderRed = Data.itemsRed;
+  const sliderRed = Data.products.filter(
+    (product) => product.category === "Red"
+  );
 
   useEffect(() => {
     if (translateR === 102) {
-      dispatch(arrowLeftHandlerRed());
+      setOpacityLeftR(0.1);
     } else if (translateR === 0) {
-      dispatch(arrowRightHandlerRed());
+      setOpacityRightR(0.1);
     }
   }, [translateR]);
 
@@ -64,10 +44,10 @@ const SliderRed = (props) => {
     <Slider>
       <section>
         <Right>
-          <a href="#">
+          <Link to="/">
             <img src={wow} alt="wow" loading="lazy" />
-          </a>
-          <a href="#">مشاهده همه</a>
+          </Link>
+          <Link to="/">مشاهده همه</Link>
         </Right>
         <Left>
           <FontAwesomeIcon
@@ -75,16 +55,12 @@ const SliderRed = (props) => {
             cursor="pointer"
             icon={faChevronRight}
             size="2x"
-            // onClick={arrowRightHandler}
-            // style={{ opacity: `${opacityRightR}` }}
-            onClick={() => dispatch(arrowRightHandlerRed())}
+            onClick={arrowRightHandler}
             style={{ opacity: `${opacityRightR}` }}
-            arrowRightHandler
           />
           <SliderTestRed
             translateR={translateR}
             sliderRed={sliderRed}
-            // sliderRed={dataRed}
             getTime={props.getTime}
           />
           <FontAwesomeIcon
@@ -92,9 +68,7 @@ const SliderRed = (props) => {
             cursor="pointer"
             icon={faChevronLeft}
             size="2x"
-            // onClick={arrowLeftHandler}
-            // style={{ opacity: `${opacityLeftR}` }}
-            onClick={() => dispatch(arrowLeftHandlerRed())}
+            onClick={arrowLeftHandler}
             style={{ opacity: `${opacityLeftR}` }}
           />
         </Left>

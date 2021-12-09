@@ -5,15 +5,16 @@ import { Link } from "react-router-dom";
 import QueryBuilderRoundedIcon from "@material-ui/icons/QueryBuilderRounded";
 
 function Card(props) {
+  const { link } = props.item;
   return (
     <CardStyle>
-      <Link className="link" to={props.item.link} img={props.item.cover}>
+      <Link className="link" to={link} img={props.item.image}>
         <div className="image">
-          <img id="one" src={props.item.cover} alt={props.item.cover} />
+          <img id="one" src={props.item.image} alt={props.item.name} />
           <img id="two" src={props.item.express} alt={props.item.express} />
         </div>
         <div className="caption">
-          <h4>{props.item.title}</h4>
+          <h4>{props.item.name}</h4>
           <div className="gift">
             {props.item.gift && (
               <div>
@@ -46,6 +47,7 @@ function Card(props) {
               )}
             </div>
             <span>00:00:00</span>
+            {/* <span>{time}</span> */}
             <QueryBuilderRoundedIcon />
           </div>
         </div>
@@ -96,7 +98,7 @@ const CardStyle = styled.div`
         text-align: right;
         display: flex;
         justify-content: flex-start;
-        min-height: 3vh;
+        min-height: 5vh;
         margin-bottom: 0.75rem;
       }
       .gift {

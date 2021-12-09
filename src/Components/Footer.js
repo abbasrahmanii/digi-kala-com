@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,7 +17,6 @@ import card5 from "../images/asset 91.svg";
 import samandehi from "../images/asset 71.png";
 import ettehadieh from "../images/asset 72.png";
 import enamad from "../images/enamad.png";
-import { Copyright } from "@material-ui/icons";
 
 const Footer = () => {
   const footerOne = [
@@ -105,35 +105,39 @@ const Footer = () => {
         <div>
           <h3>با ما همراه باشید</h3>
           <div className="icons">
-            <a href="#">
+            <Link to="/">
               <FontAwesomeIcon size="2x" icon={faInstagram} />
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/">
               <FontAwesomeIcon size="2x" icon={faTwitter} />
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/">
               <FontAwesomeIcon size="2x" icon={faLinkedin} />
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/">
               <FontAwesomeIcon size="2x" icon={faYoutube} />
-            </a>
+            </Link>
           </div>
           <h3>از جدیدترین تخفیف ها باخبر شوید</h3>
           <form>
-            <input type="email" placeholder="آدرس ایمیل خود را وارد کنید" />
+            <input
+              type="email"
+              placeholder="آدرس ایمیل خود را وارد کنید"
+              required
+            />
             <input type="submit" title="ثبت در دیجی کالا" value="ثبت" />
           </form>
         </div>
       </MainFooter>
       <Social>
-        <a href="#">
+        <Link to="/">
           <div className="logo"></div>
           <div>
             دانلود اپلیکیشن <label>دیجی کالا</label>
           </div>
-        </a>
+        </Link>
         <div className="install">
-          <a href="#">
+          <Link to="/">
             <img
               data-src="https://www.digikala.com/static/files/6f0c9aeb.svg"
               alt="دریافت از گوگل پلی"
@@ -142,8 +146,8 @@ const Footer = () => {
               loading="lazy"
               src="https://www.digikala.com/static/files/6f0c9aeb.svg"
             />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="/">
             <img
               data-src="https://www.digikala.com/static/files/b43d144f.svg"
               alt="دریافت از بازار"
@@ -152,8 +156,8 @@ const Footer = () => {
               loading="lazy"
               src="https://www.digikala.com/static/files/b43d144f.svg"
             />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="/">
             <img
               data-src="https://www.digikala.com/static/files/401848fb.png"
               alt="دریافت از مایکت"
@@ -162,8 +166,8 @@ const Footer = () => {
               loading="lazy"
               src="https://www.digikala.com/static/files/401848fb.png"
             />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="/">
             <img
               data-src="https://www.digikala.com/static/files/c824b056.svg"
               alt="دریافت از سیبچه"
@@ -172,7 +176,7 @@ const Footer = () => {
               loading="lazy"
               src="https://www.digikala.com/static/files/c824b056.svg"
             />
-          </a>
+          </Link>
         </div>
       </Social>
       <Information>
@@ -221,33 +225,39 @@ const Footer = () => {
           </span>
         </div>
         <div className="icons">
-          <a href="#">
+          <Link to="/">
             <img
               width="78px"
               height="85px"
               alt="samandehi-logo"
               src={samandehi}
             />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="/">
             <img
               width="78px"
               height="85px"
               src={ettehadieh}
               alt="ecunion-logo"
-              onclick="window.open('https://www.ecunion.ir/verify/digikala.com?token=35858775acf0232a8063', 'Popup','toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30')"
+              onClick={() =>
+                window.open(
+                  "https://www.ecunion.ir/verify/digikala.com?token=35858775acf0232a8063",
+                  "Popup",
+                  "toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30"
+                )
+              }
             />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="/">
             <img
               width="78px"
               height="85px"
-              referrerpolicy="origin"
+              referrerPolicy="origin"
               src={enamad}
               alt=""
               id="sScdOJOzhFxtcEqkjP7P"
             />
-          </a>
+          </Link>
         </div>
       </Information>
       <hr />
@@ -343,6 +353,7 @@ const MainFooter = styled.div`
       color: #91898b;
       margin-top: 0.5rem;
       font-size: 107%;
+      cursor: pointer;
       &:first-child {
         margin-top: 0;
         font-weight: bold;
@@ -361,9 +372,14 @@ const MainFooter = styled.div`
     .icons {
       margin-top: 1rem;
       margin-bottom: 2.5rem;
+
       svg {
         color: #cacaca;
         margin-left: 1.75rem;
+        transition: 0.5s ease-out;
+        &:hover {
+          color: #222;
+        }
       }
     }
     form {
@@ -377,6 +393,7 @@ const MainFooter = styled.div`
         margin-left: 0.5rem;
         &::placeholder {
           color: #424750;
+          font-size: 1rem;
         }
       }
       input[type="submit"] {
@@ -387,6 +404,9 @@ const MainFooter = styled.div`
         padding: 0.5rem 1rem;
         color: #fff;
         cursor: pointer;
+        &:hover {
+          background-color: #c0c0c0;
+        }
       }
     }
   }

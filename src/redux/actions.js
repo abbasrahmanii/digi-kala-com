@@ -1,20 +1,14 @@
-import { ARROW_RIGHT_RED } from "./actionTypes";
-import { ARROW_LEFT_RED } from "./actionTypes";
-import { ARROW_RIGHT_GREEN } from "./actionTypes";
-import { ARROW_LEFT_GREEN } from "./actionTypes";
+import { ADD_TO_CART } from "./actionTypes";
+import { REMOVE_CART } from "./actionTypes";
+// import { ARROW_LEFT_RED } from "./actionTypes";
+// import { ARROW_RIGHT_GREEN } from "./actionTypes";
+// import { ARROW_LEFT_GREEN } from "./actionTypes";
 
-export const arrowRightHandlerRed = () => ({
-  type: ARROW_RIGHT_RED,
+export const addToCart = (product) => ({
+  type: ADD_TO_CART,
+  payload: product,
 });
-
-export const arrowLeftHandlerRed = () => ({
-  type: ARROW_LEFT_RED,
-});
-
-export const arrowRightHandlerGreen = () => ({
-  type: ARROW_RIGHT_GREEN,
-});
-
-export const arrowLeftHandlerGreen = () => ({
-  type: ARROW_LEFT_GREEN,
+export const removeCart = (product) => ({
+  type: REMOVE_CART,
+  payload: product,
 });
