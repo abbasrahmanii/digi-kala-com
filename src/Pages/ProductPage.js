@@ -18,13 +18,15 @@ import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 import ChevronLeftRoundedIcon from "@material-ui/icons/ChevronLeftRounded";
 import pic2 from "../images/asset 75.svg";
 import { addToCart } from "../redux";
-// import { Data } from "../data";
-
 import { useSelector, useDispatch } from "react-redux";
+import Layout from "../Components/Layout";
 
 const ProductPage = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 0,
+      behavior: "auto",
+    });
   }, []);
   const history = useHistory();
   const location = useLocation();
@@ -61,144 +63,150 @@ const ProductPage = () => {
   };
 
   return (
-    <div>
-      <Progress
-        class="readProgressBar"
-        value={scroll}
-        max={heightValue}
-      ></Progress>
-      <BreadcrumbsStyle>
-        <Breadcrumbs aria-label="breadcrumb">
-          <Link color="inherit" to="/">
-            دیجی کالا
-          </Link>
-          <Link
-            color="inherit"
-            to="/getting-started/installation/"
-            onClick={handleClick}
-          >
-            {breadcrumbs}
-          </Link>
-          <Typography color="textPrimary">{product.brand}</Typography>
-        </Breadcrumbs>
-      </BreadcrumbsStyle>
-      <Section>
-        <div className="right">
-          <h1 className="special-offer">{breadcrumbs}</h1>
-          <div className="right-bottom">
-            <div className="icons">
-              <Tooltip
-                title="افزودن به علاقه مندی"
-                placement="right-center"
-                arrow
-              >
-                <FavoriteBorderRoundedIcon cursor="pointer" />
-              </Tooltip>
-              <Tooltip title="اشتراک گذاری" placement="right-center" arrow>
-                <ShareRoundedIcon cursor="pointer" />
-              </Tooltip>
-              <Tooltip
-                title="اطلاع رسانی شگفت انگیز"
-                placement="right-center"
-                arrow
-              >
-                <NotificationsActiveRoundedIcon cursor="pointer" />
-              </Tooltip>
-              <Tooltip title="نمودار قیمت" placement="right-center" arrow>
-                <ShowChartRoundedIcon cursor="pointer" />
-              </Tooltip>
-              <Tooltip title="مقایسه" placement="right-center" arrow>
-                <CompareRoundedIcon cursor="pointer" />
-              </Tooltip>
-              <Tooltip title="لیست های عمومی" placement="right-center" arrow>
-                <ListRoundedIcon cursor="pointer" />
-              </Tooltip>
-            </div>
-            <div className="image">
-              <img src={product.image} alt="pic1" />
-            </div>
-          </div>
-        </div>
-        <div className="center">
-          <h1 className="title">{product.name}</h1>
-          <span className="description">
-            Schon Pink Princess Roll-On Deodorant 50ml For Women
-          </span>
-          <div className="like">
-            <ThumbUpAltOutlinedIcon
-              cursor="pointer"
-              style={{ color: green[500] }}
-            />
-            <h5>
-              ۸۷٪ (بیشتر از ۹۹۹ نفر) از خریداران، این کالا را پیشنهاد کرده‌اند.
-            </h5>
-          </div>
-          <div className="star">
-            <StarRateIcon
-              cursor="pointer"
-              style={{ color: yellow[700], fontSize: "2rem" }}
-            />
-            <span>۴.۳ (۶۹۵۶)</span>
-            <span className="dot"></span>
-            <Link to="/">۵۲۷۵ دیدگاه کاربران</Link>
-            <span className="dot"></span>
-            <Link to="/">۱۷ پرسش و پاسخ</Link>
-            <Tooltip
-              title="خریداران کالا با انتخاب یکی از گزینه‌های پیشنهاد یا عدم پیشنهاد، تجربه خرید خود را با کاربران به اشتراک می‌گذارند.
-"
-              placement="bottom-end"
-              arrow
+    <Layout>
+      <div>
+        <Progress
+          class="readProgressBar"
+          value={scroll}
+          max={heightValue}
+        ></Progress>
+        <BreadcrumbsStyle>
+          <Breadcrumbs aria-label="breadcrumb">
+            <Link color="inherit" to="/">
+              دیجی کالا
+            </Link>
+            <Link
+              color="inherit"
+              to="/getting-started/installation/"
+              onClick={handleClick}
             >
-              <InfoOutlinedIcon cursor="pointer" style={{ fontSize: "1rem" }} />
-            </Tooltip>
-          </div>
-          <div className="property">
-            <h2>ویژگی های کالا</h2>
-            <div className="property-subtitle">
-              <span></span>
-              <h5>ماندگاری: ۲۴ ساعت</h5>
-            </div>
-          </div>
-          <div class="center-bottom">
-            <div class="center-bottom-one">
-              <div>
-                <img src={pic2} alt="pic2" />
-                <span>خدمات ویژه کاربران دیجی‌پلاس</span>
+              {breadcrumbs}
+            </Link>
+            <Typography color="textPrimary">{product.brand}</Typography>
+          </Breadcrumbs>
+        </BreadcrumbsStyle>
+        <Section>
+          <div className="right">
+            <h1 className="special-offer">{breadcrumbs}</h1>
+            <div className="right-bottom">
+              <div className="icons">
+                <Tooltip
+                  title="افزودن به علاقه مندی"
+                  placement="right-center"
+                  arrow
+                >
+                  <FavoriteBorderRoundedIcon cursor="pointer" />
+                </Tooltip>
+                <Tooltip title="اشتراک گذاری" placement="right-center" arrow>
+                  <ShareRoundedIcon cursor="pointer" />
+                </Tooltip>
+                <Tooltip
+                  title="اطلاع رسانی شگفت انگیز"
+                  placement="right-center"
+                  arrow
+                >
+                  <NotificationsActiveRoundedIcon cursor="pointer" />
+                </Tooltip>
+                <Tooltip title="نمودار قیمت" placement="right-center" arrow>
+                  <ShowChartRoundedIcon cursor="pointer" />
+                </Tooltip>
+                <Tooltip title="مقایسه" placement="right-center" arrow>
+                  <CompareRoundedIcon cursor="pointer" />
+                </Tooltip>
+                <Tooltip title="لیست های عمومی" placement="right-center" arrow>
+                  <ListRoundedIcon cursor="pointer" />
+                </Tooltip>
               </div>
-              <Link to="/">
-                شما هم عضو شوید
-                <ChevronLeftRoundedIcon />
-              </Link>
-            </div>
-            <div class="center-bottom-two">
-              <span class="">۲,۰۰۰ تومان هدیه نقدی</span>
-              <span class="dot"></span>
-              <span class="">ارسال رایگان</span>
-              <span class="dot"></span>
-            </div>
-          </div>
-        </div>
-        <div className="left">
-          <h1>فروشنده</h1>
-          <div>
-            <div>
-              {/* <img src="" alt="" /> */}
-              <div>
-                <span>دیجی کالا</span>
-                <span>عملکرد عالی</span>
+              <div className="image">
+                <img src={product.image} alt="pic1" />
               </div>
             </div>
-            <div>
-              <img src="" alt="" />
-              <span>گارانتی اصالت و سلامت فیزیکی کالا</span>
+          </div>
+          <div className="center">
+            <h1 className="title">{product.name}</h1>
+            <span className="description">
+              Schon Pink Princess Roll-On Deodorant 50ml For Women
+            </span>
+            <div className="like">
+              <ThumbUpAltOutlinedIcon
+                cursor="pointer"
+                style={{ color: green[500] }}
+              />
+              <h5>
+                ۸۷٪ (بیشتر از ۹۹۹ نفر) از خریداران، این کالا را پیشنهاد
+                کرده‌اند.
+              </h5>
+            </div>
+            <div className="star">
+              <StarRateIcon
+                cursor="pointer"
+                style={{ color: yellow[700], fontSize: "2rem" }}
+              />
+              <span>۴.۳ (۶۹۵۶)</span>
+              <span className="dot"></span>
+              <Link to="/">۵۲۷۵ دیدگاه کاربران</Link>
+              <span className="dot"></span>
+              <Link to="/">۱۷ پرسش و پاسخ</Link>
+              <Tooltip
+                title="خریداران کالا با انتخاب یکی از گزینه‌های پیشنهاد یا عدم پیشنهاد، تجربه خرید خود را با کاربران به اشتراک می‌گذارند.
+"
+                placement="bottom-end"
+                arrow
+              >
+                <InfoOutlinedIcon
+                  cursor="pointer"
+                  style={{ fontSize: "1rem" }}
+                />
+              </Tooltip>
+            </div>
+            <div className="property">
+              <h2>ویژگی های کالا</h2>
+              <div className="property-subtitle">
+                <span></span>
+                <h5>ماندگاری: ۲۴ ساعت</h5>
+              </div>
+            </div>
+            <div class="center-bottom">
+              <div class="center-bottom-one">
+                <div>
+                  <img src={pic2} alt="pic2" />
+                  <span>خدمات ویژه کاربران دیجی‌پلاس</span>
+                </div>
+                <Link to="/">
+                  شما هم عضو شوید
+                  <ChevronLeftRoundedIcon />
+                </Link>
+              </div>
+              <div class="center-bottom-two">
+                <span class="">۲,۰۰۰ تومان هدیه نقدی</span>
+                <span class="dot"></span>
+                <span class="">ارسال رایگان</span>
+                <span class="dot"></span>
+              </div>
             </div>
           </div>
-          <button onClick={() => addToCartHandler(product)}>
-            افزودن به سبد خرید
-          </button>
-        </div>
-      </Section>
-    </div>
+          <div className="left">
+            <h1>فروشنده</h1>
+            <div>
+              <div>
+                {/* <img src="" alt="" /> */}
+                <div>
+                  <span>دیجی کالا</span>
+                  <span>عملکرد عالی</span>
+                </div>
+              </div>
+              <div>
+                <img src="" alt="" />
+                <span>گارانتی اصالت و سلامت فیزیکی کالا</span>
+              </div>
+            </div>
+            <button onClick={() => addToCartHandler(product)}>
+              افزودن به سبد خرید
+            </button>
+          </div>
+        </Section>
+      </div>
+    </Layout>
   );
 };
 
@@ -411,8 +419,16 @@ const Section = styled.div`
     justify-content: space-between;
     button {
       padding: 1rem;
-      background: #c13121;
+      background: #cc1c08;
       color: #fff;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 0;
+      transition: 0.25s ease-out all;
+      &:hover {
+        background: #c13121;
+        letter-spacing: 1px;
+      }
     }
   }
 `;

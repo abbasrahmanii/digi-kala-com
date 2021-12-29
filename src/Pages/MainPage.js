@@ -5,10 +5,14 @@ import SliderGreen from "../Components/Slider/SliderGreen";
 import SliderRed from "../Components/Slider/SliderRed";
 import Ads from "../Components/Ads";
 import styled from "styled-components";
+import Layout from "../Components/Layout";
 
 const MainPage = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }, []);
   const [progressbarWidth, setProgressbarWidth] = useState(0);
   window.onscroll = () => {
@@ -19,20 +23,22 @@ const MainPage = () => {
   };
 
   return (
-    <div style={{ transition: "all 5s ease-out" }}>
-      {/* <ProgressContainer>
+    <Layout>
+      <div style={{ transition: "all 5s ease-out" }}>
+        {/* <ProgressContainer>
         <div
           className="progress-bar"
           id="progress-bar"
           style={{ width: `${progressbarWidth}%` }}
         ></div>
       </ProgressContainer> */}
-      <Main />
-      <SliderRed />
-      <MainTwo />
-      <SliderGreen />
-      <Ads />
-    </div>
+        <Main />
+        <SliderRed />
+        <MainTwo />
+        <SliderGreen />
+        <Ads />
+      </div>
+    </Layout>
   );
 };
 
